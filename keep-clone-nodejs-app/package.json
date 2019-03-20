@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bookshelf": "~0.14.2",
+    "express": "~4.16.4",
+    "knex": "~0.16.3"
+  }
 }
