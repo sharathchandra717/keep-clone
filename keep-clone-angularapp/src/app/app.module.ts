@@ -12,7 +12,9 @@ import { NotesScreenComponent } from './notes-screen/notes-screen.component';
 import { MatCardModule } from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
 
   declarations: [
@@ -22,6 +24,7 @@ import {MatInputModule} from '@angular/material/input';
     HeaderNavComponent,
     NotesScreenComponent,
     RegisterComponent,
+    NotFoundComponent,
   ],
 
   imports: [
@@ -37,7 +40,8 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule,
     ReactiveFormsModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
 
   providers: [],
