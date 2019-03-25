@@ -1,12 +1,12 @@
 // const router = require('express').Router();
 import { Router } from 'express'
+var UserPostsController = require('../controllers/user-posts')
 
 const router = new Router()
 
-router.get('/', (req, res) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.send('user-posts endpoint');
-});
+router.get('/', UserPostsController.get);
+
+router.post('/', UserPostsController.post);
 
 module.exports = router;
 // export default router

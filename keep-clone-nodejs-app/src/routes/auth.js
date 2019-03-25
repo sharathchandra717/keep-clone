@@ -1,8 +1,8 @@
 const router = require('express').Router();
+const AuthController = require('../controllers/auth')
 
-router.get('/', (req, res) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.send('auth endpoint');
-});
+router.post('/', AuthController.authenticate);
+
+router.get('/secret-key', AuthController.getSecretKey)
 
 module.exports = router;
