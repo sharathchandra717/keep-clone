@@ -3,6 +3,4 @@ const AuthController = require('../controllers/auth')
 
 router.post('/', AuthController.authenticate);
 
-router.get('/secret-key', AuthController.getSecretKey)
-
 module.exports = router;
