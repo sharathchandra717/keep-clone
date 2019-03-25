@@ -11,9 +11,9 @@ module.exports = {
         // var password = crypto.decrypt(req.body.password);
         var password = req.body.password;
         UsersTable.where({ "username": username })
-            .fetch({ columns: ["pass"] })
+            .fetch({ columns: ["password"] })
             .then((result) => {
-                if (passwordHash.verify(password, result.get('pass'))) {
+                if (passwordHash.verify(password, result.get('password'))) {
                     res.status(200).json({
                         "username": true,
                         "password": true
