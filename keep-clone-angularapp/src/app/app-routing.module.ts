@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeaderNavComponent } from "./header-nav/header-nav.component";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 const routes: Routes = [
   {
@@ -17,10 +19,18 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
   { 
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
+  },
+  {
+    path:'**',
+    component:NotFoundComponent
   }
 ];
 
