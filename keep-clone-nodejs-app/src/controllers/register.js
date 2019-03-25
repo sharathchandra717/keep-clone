@@ -6,9 +6,9 @@ const crypto = new SimpleCrypto(_secretkey);
 
 module.exports = {
     register: (req, res) => {
-        var name = req.body.name;
-        var pass = crypto.decrypt(req.body.pass);
-        var hashedPass = passwordHash.generate(pass);
+        var username = req.body.username;
+        var password = crypto.decrypt(req.body.password);
+        var hashedPass = passwordHash.generate(password);
         //store username and pass
         res.status(200).json({
             "message": "user added"
