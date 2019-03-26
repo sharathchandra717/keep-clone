@@ -11,25 +11,29 @@ module.exports = {
         // var password = crypto.decrypt(req.body.password);
         var password = req.body.password;
         UsersTable.where({ "username": username })
-            .fetch({ columns: ["password"] })
+            .fetch()
             .then((result) => {
                 if (passwordHash.verify(password, result.get('password'))) {
+                    console.log('User ', username, ' login success')
                     res.status(200).json({
-                        "username": true,
-                        "password": true
+                        "uname": result.get('username'),
+                        "uid": result.get('id'),
+                        "authenticated": true,
+                        "firstname": result.get('firstname'),
+                        "lastname": result.get('lastname')
                     });
                 }
                 else {
+                    console.log('User ', username, ' login failed')
                     res.status(200).json({
-                        "username": true,
-                        "password": false
+                        "authenticated": false
                     });
                 }
             })
             .catch(() => {
+                console.log('User ', username, ' does not exist')
                 res.status(200).json({
-                    "username": false,
-                    "password": false
+                    "authenticated": false
                 })
             })
     }

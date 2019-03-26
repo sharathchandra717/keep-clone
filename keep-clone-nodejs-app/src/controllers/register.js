@@ -14,33 +14,43 @@ module.exports = {
         var firstname = req.body.firstname;
         var lastname = req.body.lastname;
         UsersTable.where({ "username": username })
-            .fetch()
-            .then(() => {
-                res.status(200).json({
-                    newUser: false,
-                    success: false
-                })
-            })
-            .catch(() => {
-                new UsersTable({
-                    username: username,
-                    pass: hashedPassword,
-                    firstname: firstname,
-                    lastname: lastname
-                })
+            .count()
+            .then((count) => {
+                if (count !== 0) {
+                    res.status(200).json({
+                        newUser: false,
+                        success: false
+                    })
+                }
+                else {
+                    new UsersTable({
+                        username: username,
+                        password: hashedPassword,
+                        firstname: firstname,
+                        lastname: lastname
+                    })
                     .save()
                     .then(() => {
+                        console.log('User ' + username + ' account creation success');
                         res.status(200).json({
                             newUser: true,
                             success: true
                         })
                     })
-                    .catch(() => {
+                    .catch((err) => {
+                        console.log(err)
+                        console.log('User ' + username + ' account creation failed');
                         res.status(200).json({
                             newUser: true,
                             success: false
                         })
                     })
+                }
+            })
+            .catch((err) => {
+                res.status(200).json({
+                    err
+                })
             })
     }
 }
