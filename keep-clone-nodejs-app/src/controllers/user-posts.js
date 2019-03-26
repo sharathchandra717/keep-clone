@@ -1,6 +1,6 @@
 import NotesTable from '../db/models/notes_table';
 module.exports = {
-  get: (req, res, next) => {
+  getNotes: (req, res, next) => {
     const uid = req.query.uid;
     NotesTable.where({"user_id": uid})
     .fetchAll()
@@ -9,14 +9,21 @@ module.exports = {
       let data = []
       for(let item of result) {
         data.push({
-          
-        })    
+          id: item.attributes.id,
+          note: item.attributes.note,
+          created: item.attributes.created,
+          modified: item.attributes.modified
+        })
       }
       res.status(200).json({
-        id: result.get('id'),
-        note: result.get('note'),
-        created: result.get('created'),
-        modified: result.get('modified')
+        success: true,
+        result: data
+      })
+    })
+    .catch((err) => {
+      console.log('getnotes', err)
+      res.status(200).json({
+        success: false
       })
     })
   },
@@ -74,6 +81,24 @@ module.exports = {
     })
     .catch((err) => {
       console.log('editnote: ' + err)
+      res.status(200).json({
+        success: false
+      })
+    })
+  },
+  
+  deleteNote: (req, res, next) => {
+    const id = req.query.id;
+    NotesTable.where({"id": id})
+    .destroy()
+    .then(() => {
+      console.log("note deletion success")
+      res.status(200).json({
+        success: true
+      })
+    })
+    .catch((err) => {
+      console.log('deletenote: ' + err)
       res.status(200).json({
         success: false
       })
