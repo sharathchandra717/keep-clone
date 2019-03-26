@@ -7,18 +7,18 @@ const crypto = new SimpleCrypto(_secretkey);
 
 module.exports = {
     register: (req, res) => {
-        var username = req.body.username;
-        // var password = crypto.decrypt(req.body.password);
-        var password = req.body.password;
-        var hashedPassword = passwordHash.generate(password);
-        var firstname = req.body.firstname;
-        var lastname = req.body.lastname;
+        const username = req.body.username;
+        // const password = crypto.decrypt(req.body.password);
+        const password = req.body.password;
+        const hashedPassword = passwordHash.generate(password);
+        const firstname = req.body.firstname;
+        const lastname = req.body.lastname;
         UsersTable.where({ "username": username })
             .count()
             .then((count) => {
                 if (count !== 0) {
+                    console.log('User' + username + 'already exists');                    
                     res.status(200).json({
-                        newUser: false,
                         success: false
                     })
                 }
@@ -31,25 +31,24 @@ module.exports = {
                     })
                     .save()
                     .then(() => {
-                        console.log('User ' + username + ' account creation success');
+                        console.log('User' + username + 'account creation success');
                         res.status(200).json({
-                            newUser: true,
                             success: true
                         })
                     })
                     .catch((err) => {
                         console.log(err)
-                        console.log('User ' + username + ' account creation failed');
+                        console.log('User' + username + 'account creation failed');
                         res.status(200).json({
-                            newUser: true,
                             success: false
                         })
                     })
                 }
             })
             .catch((err) => {
+                console.log(err);
                 res.status(200).json({
-                    err
+                    success: false
                 })
             })
     }

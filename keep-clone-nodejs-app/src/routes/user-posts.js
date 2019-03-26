@@ -6,7 +6,7 @@ const router = new Router()
 
 router.get('/', UserPostsController.get);
 
-router.post('/', UserPostsController.post);
+router.post('/', UserPostsController.newNote);
 
 module.exports = router;
 // export default router
