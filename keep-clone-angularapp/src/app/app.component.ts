@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'keep-clone-angularapp';
+
+  ngOnInit() {
+    if (localStorage.getItem('loggedIn') === null) {
+      localStorage.setItem('loggedIn', "false");
+    }
+  }
 }

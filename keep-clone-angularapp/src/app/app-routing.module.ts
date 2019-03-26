@@ -5,11 +5,13 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { AuthGuard } from "./login/auth.guard";
 
 const routes: Routes = [
   {
     path: 'notes',
-    component: HeaderNavComponent
+    component: HeaderNavComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'home',
@@ -17,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'register',

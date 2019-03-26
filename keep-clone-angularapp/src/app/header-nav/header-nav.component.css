@@ -15,9 +15,22 @@
   top: 0;
   z-index: 1;
 }
+
 .header{
   background: #f5bb18;
   box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user{
+  padding: 0 14px;
+}
+
+.notesScreen{
+  padding: 10px 50px 10px 50px;
 }
 
 
