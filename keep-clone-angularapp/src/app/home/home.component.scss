@@ -10,13 +10,13 @@
     position: relative;
     height: 100%;
     background: url(../../assets/landing.jpg);
-    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: auto;
 }
 h1{
-    font-size: 50px;
+    font-size: 60px;
 }
 button{
     border-radius: 2px solid #ffffff;
