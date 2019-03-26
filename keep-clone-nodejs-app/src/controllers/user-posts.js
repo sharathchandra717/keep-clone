@@ -8,7 +8,9 @@ module.exports = {
       console.log('notes fetch successful');
       let data = []
       for(let item of result) {
-        
+        data.push({
+          
+        })    
       }
       res.status(200).json({
         id: result.get('id'),
@@ -42,39 +44,39 @@ module.exports = {
         success: false
       })
     })
-  }
+  },
 
-  // editNote: (req, res, next) => {
-  //   const id = req.body.id;
-  //   const note = req.body.note;
-  //   const modified = new Date(req.body.modified);
-  //   NotesTable.where({"id": id})
-  //   .fetch()
-  //   .then((result) => {
-  //     result.save({
-  //       uid: result.get('uid'),
-  //       note: note,
-  //       created: result.get('created'),
-  //       modified: modified
-  //     })
-  //     .then(() => {
-  //       console.log('note updated');
-  //       res.status(200).json({
-  //         success: true
-  //       })
-  //     })
-  //     .catch((err) => {
-  //       console.log('editnote: ' + err)
-  //       res.status(200).json({
-  //         success: false
-  //       })
-  //     })
-  //   })
-  //   .catch((err) => {
-  //     console.log('editnote: ' + err)
-  //     res.status(200).json({
-  //       success: false
-  //     })
-  //   })
-  // }
+  editNote: (req, res, next) => {
+    const id = req.body.id;
+    const note = req.body.note;
+    const modified = new Date(req.body.modified);
+    NotesTable.where({"id": id})
+    .fetch()
+    .then((result) => {
+      result.save({
+        uid: result.get('uid'),
+        note: note,
+        created: result.get('created'),
+        modified: modified
+      })
+      .then(() => {
+        console.log('note updated');
+        res.status(200).json({
+          success: true
+        })
+      })
+      .catch((err) => {
+        console.log('editnote: ' + err)
+        res.status(200).json({
+          success: false
+        })
+      })
+    })
+    .catch((err) => {
+      console.log('editnote: ' + err)
+      res.status(200).json({
+        success: false
+      })
+    })
+  }
 }

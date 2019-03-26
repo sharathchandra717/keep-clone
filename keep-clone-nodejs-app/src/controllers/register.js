@@ -19,6 +19,7 @@ module.exports = {
                 if (count !== 0) {
                     console.log('User' + username + 'already exists');                    
                     res.status(200).json({
+                        exists: true,
                         success: false
                     })
                 }
@@ -33,6 +34,7 @@ module.exports = {
                     .then(() => {
                         console.log('User' + username + 'account creation success');
                         res.status(200).json({
+                            exists: false,
                             success: true
                         })
                     })
@@ -40,6 +42,7 @@ module.exports = {
                         console.log(err)
                         console.log('User' + username + 'account creation failed');
                         res.status(200).json({
+                            exists: false,
                             success: false
                         })
                     })
@@ -48,6 +51,7 @@ module.exports = {
             .catch((err) => {
                 console.log(err);
                 res.status(200).json({
+                    exists: false,
                     success: false
                 })
             })
