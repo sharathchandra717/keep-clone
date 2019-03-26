@@ -6,7 +6,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes-screen.component.scss']
 })
 export class NotesScreenComponent implements OnInit {
-
+public temp = [
+  {
+    'title':'test',
+    'desc':'value'
+  },
+  {
+    'title':'test',
+    'desc':'value'
+  },
+  {
+    'title':'test',
+    'desc':'value'
+  },
+  {
+    'title':'test',
+    'desc':'value'
+  },
+  {
+    'title':'test',
+    'desc':'value'
+  },
+  {
+    'title':'test',
+    'desc':'value'
+  }
+]
   constructor() { }
 
   ngOnInit() {

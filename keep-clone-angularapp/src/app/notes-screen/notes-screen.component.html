@@ -1,61 +1,18 @@
-<div class="main">
+<br>
+<div class="row">
+  <div class="column" *ngFor="let ele of temp">
 
-  <div>
-    <mat-card class="note-card">
+    <mat-card  > 
       <mat-card-header>
-        <mat-card-title>Title</mat-card-title>
+        <mat-card-title>{{ele.title}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
+         {{ele.desc}}
         </p>
       </mat-card-content>
     </mat-card>
-  </div>
-  <div>
-    <mat-card class="note-card">
-      <mat-card-header>
-        <mat-card-title>Title</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div>
-    <mat-card class="note-card">
-      <mat-card-header>
-        <mat-card-title>Title</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div>
-    <mat-card class="note-card">
-      <mat-card-header>
-        <mat-card-title>Title</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-    </mat-card>
-  </div>
 
+  </div>
 
 </div>
