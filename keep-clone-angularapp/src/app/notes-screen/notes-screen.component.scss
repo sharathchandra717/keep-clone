@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
+    margin-top: 10px;
 }
 
     /* Create four equal columns that sits next to each other */
@@ -39,4 +40,7 @@ body {
         flex: 100%;
         max-width: 100%;
     }
+}
+.notesScreen{
+    padding: 10px 50px 10px 50px;
 }

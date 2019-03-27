@@ -1,18 +1,18 @@
-<br>
-<div class="row">
-  <div class="column" *ngFor="let ele of notes">
+<div class="notesScreen">
+  <app-create-notes></app-create-notes>
+  <mat-divider></mat-divider>
+  <div class="row">
+    <div class="column" *ngFor="let ele of notesService.notes">
 
-    <mat-card  > 
-      <mat-card-header>
-        <mat-card-title>{{ele.title}}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-         {{ele.note}}
-        </p>
-      </mat-card-content>
-    </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <h2>{{ele.title}}</h2>
+          <p>
+            {{ele.note}}
+          </p>
+        </mat-card-content>
+      </mat-card>
 
+    </div>
   </div>
-
 </div>

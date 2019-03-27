@@ -33,8 +33,8 @@ module.exports = {
     new NotesTable({
       user_id: req.body.uid,
       note: req.body.note,
-      created: new Date(req.body.created),
-      modified: new Date(req.body.created),
+      // created: new Date(req.body.created),
+      // modified: new Date(req.body.created),
       title: req.body.title
     })
       .save()

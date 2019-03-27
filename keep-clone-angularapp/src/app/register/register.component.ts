@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
 
   register() {
     this.registerService.register(this.registerForm.value).subscribe((result:any) => {
-      console.log(result);
+      // console.log(result);
       if (result.exists === true) {
         alert("Username already exists please try with new one.")
       }

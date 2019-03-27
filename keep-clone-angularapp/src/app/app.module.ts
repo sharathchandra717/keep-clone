@@ -15,6 +15,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateNotesComponent } from './create-notes/create-notes.component';
 @NgModule({
 
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     NotesScreenComponent,
     RegisterComponent,
     NotFoundComponent,
+    CreateNotesComponent,
   ],
 
   imports: [

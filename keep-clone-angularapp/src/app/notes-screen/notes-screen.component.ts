@@ -8,18 +8,10 @@ import { NotesService } from "./notes.service";
 })
 export class NotesScreenComponent implements OnInit {
 
-  notes: any[] = [];
-
   constructor(private readonly notesService: NotesService) { }
 
   ngOnInit() {
-    this.notesService.getNotes().subscribe((notes: any) => {
-      this.notes = notes.result;
-      // console.log(this.notes);
-
-    }, (err) => {
-      console.log(err);
-    });
+    this.notesService.getNotes();
   }
 
 }
