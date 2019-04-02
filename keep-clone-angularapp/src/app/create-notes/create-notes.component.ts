@@ -11,35 +11,45 @@ import { Router } from "@angular/router";
 export class CreateNotesComponent implements OnInit {
 
   noteForm: FormGroup;
+  viewMode = false;
 
   constructor(private readonly formBuilder: FormBuilder,
     private readonly notesService: NotesService,
-    private readonly router:Router) { }
+    private readonly router: Router) { }
 
   ngOnInit() {
     this.noteForm = this.formBuilder.group({
-      'title': ["", [Validators.required]],
-      'note': ["", [Validators.required]]
+      'title': ["", []],
+      'note': ["", []]
     });
     if (localStorage.getItem('loggedIn') === null) {
       this.router.navigate(['/home']);
-    } 
+    }
   }
 
   createNote() {
-    // console.log(this.noteForm.value);
-    this.notesService.createNote(this.noteForm.value).subscribe((result: any) => {
-      if (result.success === true){
-        this.notesService.getNotes();
-        this.noteForm.reset();
+    // console.log((this.noteForm.value.title).trim());
+    if (this.noteForm.value.title != null && this.noteForm.value.note != null){
+      if ((this.noteForm.value.title).trim() != "" || (this.noteForm.value.note).trim() != "") {
+        this.notesService.createNote(this.noteForm.value).subscribe((result: any) => {
+          if (result.success === true) {
+            this.notesService.getNotes();
+            this.noteForm.reset();
+            this.noteForm.value.title = ""
+            this.noteForm.value.note = ""
+          }
+          else {
+            alert("Something went wrong.");
+          }
+        });
       }
-      else{
-        alert("Something went wrong.");
-        if (localStorage.getItem('loggedIn') === null) {
-          this.router.navigate(['/home']);
-        }        
+      else {
+        alert("Title or Note is required");
       }
-    });
+    }
+    else {
+      alert("Title or Note is required");
+    }
   }
 
 }

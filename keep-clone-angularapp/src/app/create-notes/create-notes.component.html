@@ -1,11 +1,11 @@
-<div class="main">
+<div class="main" *ngIf="viewMode">
   <mat-card>
-    <form [formGroup]="noteForm" (ngSubmit)="createNote()">
+    <form [formGroup]="noteForm" (ngSubmit)="createNote(); noteForm.reset()">
       <mat-card-header>
         <mat-card-title>
           <mat-form-field appearance="outline">
             <mat-label>Title</mat-label>
-            <input id="title" matInput placeholder="Enter title..." formControlName="title"> 
+            <input id="title" matInput placeholder="Enter title..." formControlName="title">
           </mat-form-field>
         </mat-card-title>
       </mat-card-header>
@@ -17,7 +17,7 @@
       </mat-card-header>
       <br>
       <mat-card-header>
-        <button  mat-raised-button  type="submit" [disabled]="!noteForm.valid">
+        <button mat-raised-button class="yellow" type="submit" [disabled]="!noteForm.valid">
           <i class="material-icons">
             save_alt
           </i>
@@ -27,4 +27,13 @@
       <br>
     </form>
   </mat-card>
+</div>
+
+<div class="main">
+  <button mat-raised-button *ngIf="!viewMode" (click)="viewMode =! viewMode">
+    <i class="material-icons">
+      note_add
+    </i>
+    Create new
+  </button>
 </div>
