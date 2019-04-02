@@ -27,4 +27,16 @@ export class NotesService {
     });
   }
 
+  updateNote(payload){
+    return this.http.put("http://localhost:3000/api/user-posts", {
+      "id": payload.id,
+      "title": payload.title,
+      "note": payload.note
+    });
+  }
+
+  delete(id){
+    return this.http.delete("http://localhost:3000/api/user-posts?id="+id);
+  }
+
 }

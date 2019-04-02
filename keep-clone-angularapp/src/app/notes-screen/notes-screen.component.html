@@ -4,7 +4,7 @@
   <div class="row">
     <div class="column" *ngFor="let ele of notesService.notes">
 
-      <mat-card>
+      <mat-card (click)="openDialog(ele)">
         <mat-card-content>
           <h2>{{ele.title}}</h2>
           <p>

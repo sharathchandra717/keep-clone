@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { NotesService } from "../notes-screen/notes.service";
 import { Router } from "@angular/router";
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-create-notes',
@@ -15,7 +16,8 @@ export class CreateNotesComponent implements OnInit {
 
   constructor(private readonly formBuilder: FormBuilder,
     private readonly notesService: NotesService,
-    private readonly router: Router) { }
+    private readonly router: Router,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.noteForm = this.formBuilder.group({
@@ -29,14 +31,15 @@ export class CreateNotesComponent implements OnInit {
 
   createNote() {
     // console.log((this.noteForm.value.title).trim());
-    if (this.noteForm.value.title != null && this.noteForm.value.note != null){
+    if (this.noteForm.value.title != null && this.noteForm.value.note != null) {
       if ((this.noteForm.value.title).trim() != "" || (this.noteForm.value.note).trim() != "") {
         this.notesService.createNote(this.noteForm.value).subscribe((result: any) => {
           if (result.success === true) {
             this.notesService.getNotes();
+            this.snackBar.open("Note created", "Dismiss", {
+              duration: 2500,
+            });
             this.noteForm.reset();
-            this.noteForm.value.title = ""
-            this.noteForm.value.note = ""
           }
           else {
             alert("Something went wrong.");
@@ -53,3 +56,6 @@ export class CreateNotesComponent implements OnInit {
   }
 
 }
+
+
+

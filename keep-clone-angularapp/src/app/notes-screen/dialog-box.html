@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Update Note</h1>
+<div mat-dialog-content>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input id="title" matInput [(ngModel)]="data.title">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <textarea matInput id="note" [(ngModel)]="data.note"></textarea>
+  </mat-form-field>
+
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" [mat-dialog-close]="undefined" (click)="delete(data.id)">
+    <i class="material-icons">
+      clear
+    </i>
+    Delete
+  </button>
+  <button mat-raised-button class="yellow" [mat-dialog-close]="data">
+    <i class="material-icons">
+      update
+    </i>
+    Update
+  </button>
+</mat-dialog-actions>

@@ -8,7 +8,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderNavComponent } from './header-nav/header-nav.component';
-import { NotesScreenComponent } from './notes-screen/notes-screen.component';
+import { NotesScreenComponent, DialogBox } from './notes-screen/notes-screen.component';
 import { MatCardModule } from '@angular/material/card';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
@@ -16,6 +16,9 @@ import { MatInputModule } from '@angular/material/input';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateNotesComponent } from './create-notes/create-notes.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
 
   declarations: [
@@ -27,7 +30,9 @@ import { CreateNotesComponent } from './create-notes/create-notes.component';
     RegisterComponent,
     NotFoundComponent,
     CreateNotesComponent,
+    DialogBox
   ],
+  entryComponents: [DialogBox],
 
   imports: [
     BrowserModule,
@@ -43,7 +48,10 @@ import { CreateNotesComponent } from './create-notes/create-notes.component';
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ],
 
   providers: [],

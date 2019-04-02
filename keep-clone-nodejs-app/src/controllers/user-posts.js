@@ -53,7 +53,7 @@ module.exports = {
   },
 
   editNote: (req, res, next) => {
-    NotesTable.where({ "id": id })
+    NotesTable.where({ "id": req.body.id })
       .fetch()
       .then((result) => {
         result.save({

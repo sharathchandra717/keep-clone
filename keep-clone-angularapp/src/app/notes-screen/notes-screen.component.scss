@@ -44,3 +44,8 @@ body {
 .notesScreen{
     padding: 10px 50px 10px 50px;
 }
+
+mat-card{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
